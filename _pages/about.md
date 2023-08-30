@@ -1,16 +1,15 @@
 ---
 layout: about
 permalink: /
-title: <b>웹</b>프로그래밍기초 <b>WEB</b> Programming Foundations
-description: 259111 • 2023년 2학기 • 교통대학교
-logo: ut-logo.jpg
+title: 데이터베이스보안 PostGre<b>SQL</b>
+description: 000000 • 2023년 2학기 • 대전대학교
+logo: dju-logo.png
 news: true
 ---
 
-- **Time:** 수 123, 567 | Wednesday 9:00am - 11:50am, 1:00pm - 3:50pm
+- **Time:** 월 123 | Monday 9:00am - 11:50am
 - **Location:** [W18 (미래융합정보관) - 108호](https://naver.me/GSHd39rS){:target="\_blank"}
-- **KakaoTalk AM:** [카카오톡 ☕ 오픈채팅](https://open.kakao.com/o/gpQLjODf){:target="\_blank"}
-- **KakaoTalk PM:** [카카오톡 🍔 오픈채팅](https://open.kakao.com/o/gEEjkODf){:target="\_blank"}
+- **KakaoTalk AM:** [카카오톡 오픈채팅](https://open.kakao.com/o/gpQLjODf){:target="\_blank"}
 
 <!--
 - **Discussion:** [Piazza](https://piazza.com/class/jqh4n6275r82yq){:target="\_blank"}
@@ -21,16 +20,22 @@ news: true
 
 ---
 
-웹 페이지를 개발하기 위한 기본 언어인 HTML/XHTML, CSS, JavaScript 의 기본 문법을 이해한다.
+PostgreSQL은 2022년 스택오버플로 설문조사를 기준으로 현업 개발자가 가장 많이 사용하는 데이터베이스가 되었습니다. ‘세상에서 가장 앞선 오픈소스 관계형 데이터베이스’라는 소개답게 표준 SQL의 지원과 뛰어난 자체 기능으로 개발자들의 선택을 받았죠. 이 책은 ‘가장 앞선 데이터베이스’인 PostgreSQL을 사용해 데이터를 관리하고 분석해 여기서 숨겨진 이야기를 찾는 방법을 알려 줍니다. 이 책은 ‘PostgreSQL로 시작하는 데이터 스토리텔링 가이드북’이라는 부제처럼 데이터를 더 효율적으로 정리하고 분석하려는 모두에게 도움이 됩니다.
 
-- HTML은 웹사이트의 구조를 제공합니다. HTML 태그를 공부한 후 수업에서 간단한 웹페이지를 함께 만듭니다. 그런 다음 개인 웹 페이지 프로젝트가 할당됩니다.
-- CSS는 웹사이트의 스타일을 제공합니다. CSS 규칙을 공부한 후, 이전에 생성된 클래스 웹 페이지는 함께 스타일이 지정됩니다. 그런 다음 CSS 스타일을 추가하기 위해 개인 웹 페이지 프로젝트가 할당됩니다. 세 번째 웹 페이지를 할당하여 처음부터 만들 수도 있습니다(선택).
-- JavaScript는 웹사이트의 기능을 제공합니다. 자바스크립트의 문법과 기능의 기초를 공부한 후, 간단한 상호작용을 클래스 웹페이지에 추가할 것입니다. 그런 다음 학생들은 자신의 웹페이지에 추가(다른) 기능을 추가해야 합니다. 마지막으로 네 번째 추가 웹페이지를 처음부터 디자인하도록 할당할 수도 있습니다(선택).
+- 실제 데이터로 데이터베이스 및 테이블 생성
+- 데이터 집계, 정렬, 필터링을 통한 패턴 탐색
+- 데이터 안에 있는 오류 식별 및 수정
+- PostGIS를 활용한 공간 데이터 분석
+- 기본 연산 및 고급 통계 함수 사용
+- 고급 쿼리 생성 및 작업 자동화
 
 ---
 
-Students will understand the basic grammar of HTML/XHTML, CSS, and JavaScript, which are the basic languages for developing web pages.
+PostgreSQL has become the most used database by business developers, according to a 2022 Stack Overflow survey. True to its introduction as ‘the world’s most advanced open-source relational database,’ it was chosen by developers for its standard SQL support and outstanding features. This book tells you how to manage and analyze data using PostgreSQL, the 'most advanced database', to find the hidden story here. This book is helpful for anyone who wants to organize and analyze data more efficiently, as the subtitle 'Data Storytelling Guidebook Begins with PostgreSQL'.
 
-- HTML provides the structure of the website. After studying HTML tags, we create simple webpages together in class. Students will then be assigned a Personal Web Page project.
-- CSS provides the style of the website. After studying the CSS rules, the previously created class web pages will be styled together. The Personal Web Page project will be assigned to add CSS styles. Or students can choose to build a new webpage from scratch (optional).
-- JavaScript powers the functionality of the website. After studying the basics of JavaScript syntax and functionality, we will add simple interactions to our class webpage. Students then need to add additional (other) features to their Personal Web Page project. Or students can choose to build a new webpage from scratch (optional).
+- Create databases and tables with real data
+- Exploring patterns through data aggregation, sorting, and filtering
+- Identify and correct errors in data
+- Spatial data analysis using PostGIS
+- Use of basic arithmetic and advanced statistical functions
+- Create advanced queries and automate tasks
