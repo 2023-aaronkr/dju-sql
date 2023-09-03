@@ -9,7 +9,7 @@ news: true
 
 - **Time:** 월 234 | Monday 10:00am - 12:50am
 - **Location:** [융합과학환 306호](https://naver.me/xhK7pEHR)
-- **KakaoTalk:** [카카오톡 오픈채팅](https://open.kakao.com/o/gpQLjODf){:target="\_blank"}
+- **KakaoTalk:** [카카오톡 오픈채팅](https://open.kakao.com/o/ghMiKZEf){:target="\_blank"}
 
 <!--
 - **Discussion:** [Piazza](https://piazza.com/class/jqh4n6275r82yq){:target="\_blank"}
