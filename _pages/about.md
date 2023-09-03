@@ -7,8 +7,8 @@ logo: dju-logo.png
 news: true
 ---
 
-- **Time:** 월 123 | Monday 9:00am - 11:50am
-- **Location:**
+- **Time:** 월 234 | Monday 10:00am - 12:50am
+- **Location:** [융합과학환 306호](https://naver.me/xhK7pEHR)
 - **KakaoTalk:** [카카오톡 오픈채팅](https://open.kakao.com/o/gpQLjODf){:target="\_blank"}
 
 <!--
