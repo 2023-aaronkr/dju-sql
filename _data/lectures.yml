@@ -30,7 +30,8 @@
     - 5장. 데이터 가져오고 내보내기
   slides: "https://docs.google.com/presentation/d/1Z8cWKAwqcK_tFAPPNKj3q66QY8zbqQlKjEqDTKexsq0/edit?usp=sharing"
   readings:
-  logistics:
+  logistics: >
+    <a href="https://2023-aaronkr.github.io/dju-sql/assets/downloads/chp05.zip">5장 자료</a>
 
 - date: 10/2
   week: 5
