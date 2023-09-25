@@ -2,7 +2,7 @@
 layout: about
 permalink: /
 title: 데이터베이스보안 PostGre<b>SQL</b>
-description: 000000 • 2023년 2학기 • 대전대학교
+description: 011780 • 2023년 2학기 • 대전대학교
 logo: dju-logo.png
 news: true
 ---
