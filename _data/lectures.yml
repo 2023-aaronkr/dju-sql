@@ -14,7 +14,8 @@
     - 3장. SELECT로 시작하는 데이터 탐험
   slides: "https://docs.google.com/presentation/d/18Y-0nSrlGzUN3x7CETKwkAf-5t-1rFYCcAUEhueknRA/edit?usp=sharing"
   readings:
-  logistics:
+  logistics: >
+    <a href="https://forms.gle/HjaqxaqjU3XrSyba9">2주차 과제 제출하기</a>
 
 - date: 9/18
   week: 3
@@ -22,7 +23,8 @@
     - 4장. 데이터 타입 이해
   slides: "https://docs.google.com/presentation/d/1EmHhUwbOk6vQ8i0Y5wVLSyt2TT6siIRFdFehboi7LEM/edit?usp=sharing"
   readings: pp. 57-87
-  logistics:
+  logistics: >
+    <a href="https://forms.gle/oLbph91Vuk9cypgJ9">3주차 과제 제출하기</a>
 
 - date: 9/25
   week: 4
