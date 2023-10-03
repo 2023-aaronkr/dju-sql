@@ -144,9 +144,9 @@
   logistics:
 
 - date: 12/11
-  week: >
-    <span style="color: red">15 (보강)</span>
+  week: 15 (보강)
   title: >
+    <span style="color: red">9주차 보강</span><br>
     - 14장. 의미 있는 데이터를 찾기 위한 텍스트 마이닝
   slides:
   readings: >
