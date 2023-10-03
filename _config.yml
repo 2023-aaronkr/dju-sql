@@ -2,11 +2,11 @@
 # Site settings
 # -----------------------------------------------------------------------------
 author: Aaron Snowberger
-name: DJU | 000000
-title: 웹프로그래밍기초
+name: DJU | 011780
+title: 데이터베이스 보안
 email: aaronkr.trainer@gmail.com
 description: >
-  011780 - 데이터베이스보안 - 대전대학교 - 2023년 2학기
+  011780 - 데이터베이스 보안 - 대전대학교 - 2023년 2학기
 footer_text: >
   Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
 
