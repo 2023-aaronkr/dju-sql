@@ -46,12 +46,14 @@
 - date: 10/2
   week: 5
   title: >
-    <strong>No School</strong> Chuseok <span style="color: red">(10/16 저녁 보강)</span>
+    <strong>No School</strong> Chuseok <br>
+    <span style="color: red">(10/16 저녁 보강)</span>
 
 - date: 10/9
   week: 6
   title: >
-    <strong>No School</strong> Hangul Day <span style="color: red">(보강 TBA 11/20?)</span>
+    <strong>No School</strong> Hangul Day <br>
+    <span style="color: red">(보강 TBA 11/20?)</span>
 
 - date: 10/16
   week: 7
@@ -82,7 +84,8 @@
 - date: 10/30
   week: 9
   title: >
-    <strong>No School</strong> DJU BDay!~ <span style="color: red">(12/11 월요일 보강)</span>
+    <strong>No School</strong> DJU BDay!~ <br>
+    <span style="color: red">(12/11 월요일 보강)</span>
 
 - date: 11/6
   week: 10
