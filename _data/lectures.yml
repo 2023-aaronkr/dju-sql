@@ -16,7 +16,7 @@
   readings: >
     실용 SQL, <strong>1-2장, pp. 27-54</strong>
   logistics: >
-    <a style="color: red"  href="https://forms.gle/HjaqxaqjU3XrSyba9">2주차 과제 제출하기</a>
+    <a href="https://forms.gle/HjaqxaqjU3XrSyba9">2주차 과제 제출하기</a>
 
 - date: 9/18
   week: 3
@@ -27,7 +27,7 @@
   readings: >
     실용 SQL, <strong>3-4장, pp. 57-87</strong>
   logistics: >
-    <a style="color: red" href="https://forms.gle/oLbph91Vuk9cypgJ9">3주차 과제 제출하기</a>
+    <a href="https://forms.gle/oLbph91Vuk9cypgJ9">3주차 과제 제출하기</a>
 
 - date: 9/25
   week: 4
@@ -40,7 +40,7 @@
   logistics: >
     <ul>
       <li><a href="https://2023-aaronkr.github.io/dju-sql/assets/downloads/chp05.zip">5장 자료</a></li>
-      <li><a style="color: red" href="https://forms.gle/YReDthnSy17cuqKm8">4주차 과제 제출하기</a></li>
+      <li><a href="https://forms.gle/YReDthnSy17cuqKm8">4주차 과제 제출하기</a></li>
     </ul>
 
 - date: 10/2
@@ -63,7 +63,8 @@
   slides: "https://docs.google.com/presentation/d/1Z8cWKAwqcK_tFAPPNKj3q66QY8zbqQlKjEqDTKexsq0/edit?usp=sharing"
   readings: >
     실용 SQL, <strong>5-6장, pp. 89-123</strong>
-  logistics:
+  logistics: >
+    <li><a style="color: red" href="https://forms.gle/1N34UazaYQ9rjLPJA">7주차 과제 제출하기</a></li>
 
 - date: 10/16
   week: >
