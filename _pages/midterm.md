@@ -304,11 +304,301 @@ FROM data_time_types; -- 위와 동일한 결과를 보여줍니다
 
 ## 5. 데이터 가져오고 내보내기
 
+**데이터 가져오기**
+
+```sql
+CREATE TABLE teachers (
+  id bigserial,
+  first_name varchar(25),
+  last_name varchar(50),
+  school varchar(50),
+  hire_date date,
+  salary numeric
+);
+
+COPY teachers (first_name, last_name, school, hire_date, salary)
+FROM '/Users/aaronkr/Desktop/teachers.csv'
+WITH (FORMAT CSV, HEADER); -- CSV 파일을 테이블에 삽입합니다
+```
+
+**삭제하기**
+
+```sql
+DELETE FROM teachers; -- 테이블의 모든 행을 삭제합니다
+
+DELETE FROM teachers
+WHERE id = 1; -- id가 1인 행을 삭제합니다
+```
+
+**데이터 가져오기 및 WHERE**
+
+```sql
+COPY teachers (first_name, last_name, school, hire_date, salary)
+FROM '/Users/aaronkr/Desktop/teachers.csv'
+WITH (FORMAT CSV, HEADER)
+WHERE salary > 10000; -- CSV 파일에서 salary가 10000보다 큰 행만 테이블에 삽입합니다
+```
+
+**감시 테이블 (안 배웠지만 유용합니다)**
+
+```sql
+ CREATE TEMPORARY TABLE supervisor_salaries_temp
+    (LIKE supervisor_salaries INCLUDING ALL);
+
+COPY supervisor_salaries_temp (town, supervisor, salary)
+FROM 'C:\YourDirectory\supervisor_salaries.csv'
+WITH (FORMAT CSV, HEADER);
+
+INSERT INTO supervisor_salaries (town, county, supervisor, salary)
+SELECT town, 'Mills', supervisor, salary
+FROM supervisor_salaries_temp;
+
+DROP TABLE supervisor_salaries_temp;
+```
+
+**데이터 내보내기**
+
+```sql
+COPY teachers (first_name, last_name, school, hire_date, salary)
+TO '/Users/aaronkr/Desktop/teachers.txt'
+WITH (FORMAT CSV, HEADER, DELIMITER '|'); -- 테이블의 모든 행을 CSV 파일로 내보냅니다
+```
+
+**데이터 내보내기 및 WHERE**
+
+```sql
+COPY teachers (first_name, last_name, school, hire_date, salary)
+TO '/Users/aaronkr/Desktop/teachers.txt'
+WITH (FORMAT CSV, HEADER, DELIMITER '|')
+WHERE salary > 10000; -- 테이블에서 salary가 10000보다 큰 행만 CSV 파일로 내보냅니다
+```
+
+**데이터 내보내기 및 SELECT**
+
+```sql
+COPY (
+  SELECT first_name, last_name
+  FROM teachers
+  WHERE first_name ILIKE 'a%'
+  )
+TO '/Users/aaronkr/Desktop/teachers.txt'
+WITH (FORMAT CSV, HEADER, DELIMITER '|'); -- 테이블에서 salary가 10000보다 큰 행의 first_name과 last_name 열만 CSV 파일로 내보냅니다
+```
+
 [목차로 돌아가기](#midterm-guide--중간고사-가이드)
 
 ---
 
 ## 6. SQL을 사용한 기본 수학 및 통계
+
+**기본 수학**
+
+연산
+
+- `+` (더하기)
+- `-` (빼기)
+- `*` (곱하기)
+- `/` (나누기)
+- `%` (나머지)
+- `^` (거듭제곱)
+- `|/` (제곱근)
+- `||/` (큐브 루트)
+- `||` (절대값)
+- `!` (팩토리얼)
+
+```sql
+SELECT 1 + 1; -- 2
+```
+
+```sql
+SELECT 1 - 1; -- 0
+```
+
+```sql
+SELECT 2 * 2; -- 4
+```
+
+```sql
+SELECT 4 / 2; -- 2
+```
+
+```sql
+SELECT 4 % 2; -- 0
+```
+
+```sql
+SELECT 2 ^ 3; -- 8
+```
+
+```sql
+SELECT 2 ^ 0.5; -- 1.4142135623730951
+```
+
+```sql
+SELECT 2 ^ -1; -- 0.5
+```
+
+```sql
+SELECT 2 ^ 0; -- 1
+```
+
+```sql
+SELECT 2 ^ NULL; -- NULL
+```
+
+```sql
+SELECT 2 ^ 3 ^ 2; -- 512
+```
+
+```sql
+SELECT (2 ^ 3) ^ 2; -- 64
+```
+
+```sql
+SELECT 2 ^ (3 ^ 2); -- 512
+```
+
+```sql
+SELECT 2 ^ 3 * 2; -- 16
+```
+
+```sql
+SELECT 11 / 6;
+SELECT 11 % 6;
+SELECT 11.0 / 6;
+SELECT CAST(11 AS numeric(3,1)) / 6;
+```
+
+```sql
+SELECT 3 ^ 4;
+SELECT |/ 10;
+SELECT sqrt(10);
+SELECT ||/ 10;
+SELECT factorial(4);
+SELECT 4 !;
+```
+
+**테이블에서 하는 수학**
+
+```sql
+SELECT salary * 2 AS double_salary FROM teachers; -- salary 열의 값에 2를 곱하고 열의 이름을 'double_salary'로 지정합니다
+```
+
+```sql
+SELECT county_name AS county,
+       state_name AS state,
+       area_water::numeric / (area_land + area_water) * 100 AS pct_water
+FROM us_counties_pop_est_2019
+ORDER BY pct_water DESC;
+```
+
+**통계**
+
+Tracking Percent Change / 퍼센트 변화 추적
+
+`(new_number - old_number) / old_number * 100`
+
+```sql
+CREATE TABLE percent_change (
+  department text,
+  spend_2019 numeric(10,2),
+  spend_2022 numeric(10,2)
+);
+
+INSERT INTO percent_change
+VALUES
+  ('Assessor', 178556, 179500),
+  ('Building', 250000, 289000),
+  ('Clerk', 451980, 650000),
+  ('Library', 87777, 90001),
+  ('Parks', 250000, 223000),
+  ('Water', 199000, 195000);
+
+SELECT department,
+      spend_2019,
+      spend_2022,
+      round( (spend_2022 - spend_2019) /
+                    spend_2019 * 100, 1) AS pct_change
+FROM percent_change;
+```
+
+SUM / 합계
+
+```sql
+SELECT SUM(salary) FROM teachers; -- salary 열의 합을 구합니다
+```
+
+평균
+
+```sql
+SELECT AVG(salary) FROM teachers; -- salary 열의 평균을 구합니다
+```
+
+중간값
+
+```sql
+SELECT PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY salary) AS median_salary
+FROM teachers; -- salary 열의 중간값을 구합니다
+```
+
+Finding Other Quantiles with Percentile Functions / 백분위수 함수를 사용하여 다른 백분위수 찾기
+
+```sql
+SELECT percentile_cont(ARRAY[.25,.5,.75])
+       WITHIN GROUP (ORDER BY salary) AS quartiles
+FROM teachers;
+```
+
+```sql
+
+SELECT unnest(
+    percentile_cont(ARRAY[.25,.5,.75])
+    WITHIN GROUP (ORDER BY salary)
+  ) AS quartiles
+FROM teachers;
+```
+
+Finding the mode /
+
+```sql
+
+SELECT mode() WITHIN GROUP (ORDER BY births_2019)
+FROM us_counties_pop_est_2019;
+```
+
+최빈값
+
+```sql
+SELECT salary, COUNT(*) AS count
+FROM teachers
+GROUP BY salary
+ORDER BY count DESC
+LIMIT 1; -- salary 열의 최빈값을 구합니다
+```
+
+표준편차
+
+```sql
+SELECT STDDEV(salary) FROM teachers; -- salary 열의 표준편차를 구합니다
+```
+
+분산
+
+```sql
+SELECT VARIANCE(salary) FROM teachers; -- salary 열의 분산을 구합니다
+```
+
+최솟값
+
+```sql
+SELECT MIN(salary) FROM teachers; -- salary 열의 최솟값을 구합니다
+```
+
+최댓값
+
+```sql
+SELECT MAX(salary) FROM teachers; -- salary 열의 최댓값을 구합니다
+```
 
 [목차로 돌아가기](#midterm-guide--중간고사-가이드)
 
@@ -317,7 +607,3 @@ FROM data_time_types; -- 위와 동일한 결과를 보여줍니다
 ## 7. 관계형 데이터베이스에서 테이블 조인
 
 [목차로 돌아가기](#midterm-guide--중간고사-가이드)
-
-```
-
-```
