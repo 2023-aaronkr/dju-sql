@@ -606,4 +606,478 @@ SELECT MAX(salary) FROM teachers; -- salary 열의 최댓값을 구합니다
 
 ## 7. 관계형 데이터베이스에서 테이블 조인
 
+**조인**
+
+```sql
+SELECT *
+FROM table_a JOIN table_b
+ON table_a.key_column = table_b.foreign_key_column; -- table_a 테이블과 table_b 테이블을 조인합니다
+```
+
+```sql
+SELECT *
+FROM teachers
+JOIN departments ON teachers.department_id = departments.id; -- teachers 테이블과 departments 테이블을 조인합니다
+```
+
+```sql
+SELECT *
+FROM teachers
+JOIN departments ON teachers.department_id = departments.id
+WHERE departments.name = 'Assessor'; -- teachers 테이블과 departments 테이블을 조인하고 departments 테이블의 name 열이 'Assessor'인 행만 보여줍니다
+```
+
+**예제**
+
+```sql
+CREATE TABLE departments (
+    dept_id integer,
+    dept text,
+    city text,
+    CONSTRAINT dept_key PRIMARY KEY (dept_id),
+    CONSTRAINT dept_city_unique UNIQUE (dept, city)
+);
+
+CREATE TABLE employees (
+    emp_id integer,
+    first_name text,
+    last_name text,
+    salary numeric(10,2),
+    dept_id integer REFERENCES departments (dept_id),
+    CONSTRAINT emp_key PRIMARY KEY (emp_id)
+);
+
+INSERT INTO departments
+VALUES
+    (1, 'Tax', 'Atlanta'),
+    (2, 'IT', 'Boston');
+
+INSERT INTO employees
+VALUES
+    (1, 'Julia', 'Reyes', 115300, 1),
+    (2, 'Janet', 'King', 98000, 1),
+    (3, 'Arthur', 'Pappas', 72700, 2),
+    (4, 'Michael', 'Taylor', 89500, 2);
+
+SELECT *
+FROM employees
+JOIN departments ON employees.dept_id = departments.dept_id
+ORDER BY employees.dept_id;
+```
+
+**JOIN 종류**
+
+- `INNER JOIN` (두 테이블의 공통된 행만 보여줍니다)
+- `LEFT JOIN` (왼쪽 테이블의 모든 행을 보여줍니다)
+- `RIGHT JOIN` (오른쪽 테이블의 모든 행을 보여줍니다)
+- `FULL OUTER JOIN` (두 테이블의 모든 행을 보여줍니다)
+- `CROSS JOIN` (두 테이블의 모든 행을 보여줍니다)
+
+예제
+
+```sql
+
+CREATE TABLE district_2020 (
+  id integer CONSTRAINT id_key_2020 PRIMARY KEY,
+  school_2020 text
+);
+
+CREATE TABLE district_2035 (
+  id integer CONSTRAINT id_key_2035 PRIMARY KEY,
+  school_2035 text
+);
+
+INSERT INTO district_2020 VALUES
+  (1, 'Oak Street School'),
+  (2, 'Roosevelt High School'),
+  (5, 'Dover Middle School'),
+  (6, 'Webutuck High School');
+
+INSERT INTO district_2035 VALUES
+  (1, 'Oak Street School'),
+  (2, 'Roosevelt High School'),
+  (3, 'Morrison Elementary'),
+  (4, 'Chase Magnet Academy'),
+  (6, 'Webutuck High School');
+```
+
+**INNER JOIN**
+
+```sql
+SELECT *
+FROM district_2020
+INNER JOIN district_2035
+ON district_2020.id = district_2035.id; -- 두 테이블의 공통된 행만 보여줍니다
+```
+
+**LEFT JOIN**
+
+```sql
+SELECT *
+FROM district_2020
+LEFT JOIN district_2035
+ON district_2020.id = district_2035.id; -- 왼쪽 테이블의 모든 행을 보여줍니다
+```
+
+**RIGHT JOIN**
+
+```sql
+SELECT *
+FROM district_2020
+RIGHT JOIN district_2035
+ON district_2020.id = district_2035.id; -- 오른쪽 테이블의 모든 행을 보여줍니다
+```
+
+**FULL OUTER JOIN**
+
+```sql
+SELECT *
+FROM district_2020
+FULL OUTER JOIN district_2035
+ON district_2020.id = district_2035.id; -- 두 테이블의 모든 행을 보여줍니다
+```
+
+**CROSS JOIN**
+
+```sql
+SELECT *
+FROM district_2020
+CROSS JOIN district_2035; -- 두 테이블의 모든 행을 보여줍니다
+```
+
+**JOIN을 사용한 데이터 탐색**
+
+```sql
+SELECT *
+FROM district_2020
+JOIN district_2035
+ON district_2020.id = district_2035.id
+WHERE district_2020.school_2020 <> district_2035.school_2035; -- 두 테이블의 공통된 행만 보여줍니다
+```
+
+**JOIN 및 USING**
+
+```sql
+SELECT *
+FROM district_2020
+JOIN district_2035
+USING (id); -- 두 테이블의 공통된 행만 보여줍니다
+```
+
+**JOIN 및 NULL**
+
+Using NULL to Find Rows with Missing Values / NULL을 사용하여 누락된 값이 있는 행 찾기
+
+```sql
+SELECT *
+FROM district_2020
+JOIN district_2035
+ON district_2020.id = district_2035.id
+WHERE district_2020.id IS NULL; -- 두 테이블의 공통된 행만 보여줍니다
+```
+
+**JOIN 및 UNION**
+
+```sql
+SELECT *
+FROM district_2020
+JOIN district_2035
+ON district_2020.id = district_2035.id
+WHERE district_2020.id IS NULL
+UNION
+SELECT *
+FROM district_2020
+JOIN district_2035
+ON district_2020.id = district_2035.id
+WHERE district_2035.id IS NULL; -- 두 테이블의 공통된 행만 보여줍니다
+```
+
+**JOIN 및 EXCEPT**
+
+```sql
+SELECT *
+FROM district_2020
+JOIN district_2035
+ON district_2020.id = district_2035.id
+EXCEPT
+SELECT *
+FROM district_2020
+JOIN district_2035
+ON district_2020.id = district_2035.id
+WHERE district_2020.school_2020 = district_2035.school_2035; -- 두 테이블의 공통된 행만 보여줍니다
+```
+
+**JOIN 및 INTERSECT**
+
+```sql
+SELECT *
+FROM district_2020
+JOIN district_2035
+ON district_2020.id = district_2035.id
+INTERSECT
+SELECT *
+FROM district_2020
+JOIN district_2035
+ON district_2020.id = district_2035.id
+WHERE district_2020.school_2020 = district_2035.school_2035; -- 두 테이블의 공통된 행만 보여줍니다
+```
+
+**테이블 관계 이해하기**
+
+- `1:1` (하나의 행이 다른 테이블의 하나의 행과 연결됩니다)
+- `1:N` (하나의 행이 다른 테이블의 여러 행과 연결됩니다)
+- `N:M` (하나의 행이 다른 테이블의 여러 행과 연결되고, 다른 테이블의 행이 하나의 행과 연결됩니다)
+
+**1:1**
+
+```sql
+CREATE TABLE teachers (
+  id bigserial,
+  first_name varchar(25),
+  last_name varchar(50),
+  school varchar(50),
+  hire_date date,
+  salary numeric,
+  CONSTRAINT teachers_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE teacher_details (
+  id bigserial,
+  teacher_id bigint,
+  address varchar(100),
+  phone varchar(20),
+  CONSTRAINT teacher_details_pkey PRIMARY KEY (id),
+  CONSTRAINT teacher_details_teacher_id_fkey FOREIGN KEY (teacher_id)
+      REFERENCES teachers (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+);
+
+INSERT INTO teachers (first_name, last_name, school, hire_date, salary)
+VALUES ('Aaron', 'Snowberger', 'Daejeon University', '2023-09-01', 10000);
+
+INSERT INTO teacher_details (teacher_id, address, phone)
+VALUES (1, '123 Main Street', '555-555-5555');
+
+SELECT *
+FROM teachers
+JOIN teacher_details
+ON teachers.id = teacher_details.teacher_id; -- 두 테이블의 공통된 행만 보여줍니다
+```
+
+**1:N**
+
+```sql
+CREATE TABLE teachers (
+  id bigserial,
+  first_name varchar(25),
+  last_name varchar(50),
+  school varchar(50),
+  hire_date date,
+  salary numeric,
+  CONSTRAINT teachers_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE teacher_details (
+  id bigserial,
+  teacher_id bigint,
+  address varchar(100),
+  phone varchar(20),
+  CONSTRAINT teacher_details_pkey PRIMARY KEY (id),
+  CONSTRAINT teacher_details_teacher_id_fkey FOREIGN KEY (teacher_id)
+      REFERENCES teachers (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+);
+
+INSERT INTO teachers (first_name, last_name, school, hire_date, salary)
+VALUES ('Aaron', 'Snowberger', 'Daejeon University', '2023-09-01', 10000);
+
+INSERT INTO teacher_details (teacher_id, address, phone)
+VALUES (1, '123 Main Street', '555-555-5555'),
+       (1, '456 Main Street', '555-555-5555');
+
+SELECT *
+FROM teachers
+JOIN teacher_details
+ON teachers.id = teacher_details.teacher_id; -- 두 테이블의 공통된 행만 보여줍니다
+```
+
+**N:M**
+
+```sql
+CREATE TABLE teachers (
+  id bigserial,
+  first_name varchar(25),
+  last_name varchar(50),
+  school varchar(50),
+  hire_date date,
+  salary numeric,
+  CONSTRAINT teachers_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE teacher_details (
+  id bigserial,
+  teacher_id bigint,
+  address varchar(100),
+  phone varchar(20),
+  CONSTRAINT teacher_details_pkey PRIMARY KEY (id),
+  CONSTRAINT teacher_details_teacher_id_fkey FOREIGN KEY (teacher_id)
+      REFERENCES teachers (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+);
+
+CREATE TABLE teacher_subjects (
+  id bigserial,
+  teacher_id bigint,
+  subject varchar(50),
+  CONSTRAINT teacher_subjects_pkey PRIMARY KEY (id),
+  CONSTRAINT teacher_subjects_teacher_id_fkey FOREIGN KEY (teacher_id)
+      REFERENCES teachers (id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+);
+
+INSERT INTO teachers (first_name, last_name, school, hire_date, salary)
+VALUES ('Aaron', 'Snowberger', 'Daejeon University', '2023-09-01', 10000);
+
+INSERT INTO teacher_details (teacher_id, address, phone)
+VALUES (1, '123 Main Street', '555-555-5555'),
+       (1, '456 Main Street', '555-555-5555');
+
+INSERT INTO teacher_subjects (teacher_id, subject)
+VALUES (1, 'Math'),
+       (1, 'Science');
+
+SELECT *
+FROM teachers
+JOIN teacher_details
+ON teachers.id = teacher_details.teacher_id; -- 두 테이블의 공통된 행만 보여줍니다
+```
+
+**Selecting Specific Columns in a Join / 조인에서 특정 열 선택**
+
+```sql
+SELECT teachers.first_name,
+       teachers.last_name,
+       teacher_details.address,
+       teacher_details.phone
+FROM teachers
+JOIN teacher_details
+ON teachers.id = teacher_details.teacher_id; -- 두 테이블의 공통된 행만 보여줍니다
+```
+
+**Simplifying JOIN Syntax with Table Aliases / 테이블 별칭을 사용하여 JOIN 구문 단순화**
+
+```sql
+SELECT t.first_name,
+       t.last_name,
+       td.address,
+       td.phone
+FROM teachers AS t
+JOIN teacher_details AS td
+ON t.id = td.teacher_id; -- 두 테이블의 공통된 행만 보여줍니다
+```
+
+**Joining Multiple Tables / 여러 테이블 조인**
+
+```sql
+CREATE TABLE district_2020_enrollment (
+    id integer,
+    enrollment integer
+);
+
+CREATE TABLE district_2020_grades (
+    id integer,
+    grades varchar(10)
+);
+
+INSERT INTO district_2020_enrollment
+VALUES
+    (1, 360),
+    (2, 1001),
+    (5, 450),
+    (6, 927);
+
+INSERT INTO district_2020_grades
+VALUES
+    (1, 'K-3'),
+    (2, '9-12'),
+    (5, '6-8'),
+    (6, '9-12');
+
+SELECT d20.id,
+       d20.school_2020,
+       en.enrollment,
+       gr.grades
+FROM district_2020 AS d20
+JOIN district_2020_enrollment AS en
+    ON d20.id = en.id
+JOIN district_2020_grades AS gr
+    ON d20.id = gr.id
+ORDER BY d20.id;
+```
+
+**Combining Query Results with Set Operators / 집합 연산자를 사용하여 쿼리 결과 결합**
+
+```sql
+SELECT *
+FROM district_2020
+UNION
+SELECT *
+FROM district_2035; -- 두 테이블의 공통된 행만 보여줍니다
+```
+
+```sql
+SELECT *
+FROM district_2020
+UNION ALL
+SELECT *
+FROM district_2035; -- 두 테이블의 공통된 행만 보여줍니다
+```
+
+```sql
+SELECT *
+FROM district_2020
+INTERSECT
+SELECT *
+FROM district_2035; -- 두 테이블의 공통된 행만 보여줍니다
+```
+
+```sql
+SELECT *
+FROM district_2020
+EXCEPT
+SELECT *
+FROM district_2035; -- 두 테이블의 공통된 행만 보여줍니다
+```
+
+**Performing Math on Joined Table Columns / 조인된 테이블 열에서 수학 수행**
+
+```sql
+ CREATE TABLE us_counties_pop_est_2010 (
+    state_fips text,
+    county_fips text,
+    region smallint,
+    state_name text,
+    county_name text,
+    estimates_base_2010 integer,
+    CONSTRAINT counties_2010_key PRIMARY KEY (state_fips, county_fips)
+);
+
+COPY us_counties_pop_est_2010
+FROM 'C:\YourDirectory\us_counties_pop_est_2010.csv'
+WITH (FORMAT CSV, HEADER);
+
+SELECT c2019.county_name,
+       c2019.state_name,
+       c2019.pop_est_2019 AS pop_2019,
+       c2010.estimates_base_2010 AS pop_2010,
+       c2019.pop_est_2019 - c2010.estimates_base_2010 AS raw_change,
+       round( (c2019.pop_est_2019::numeric - c2010.estimates_base_2010)
+           / c2010.estimates_base_2010 * 100, 1 ) AS pct_change
+FROM us_counties_pop_est_2019 AS c2019
+    JOIN us_counties_pop_est_2010 AS c2010
+ON c2019.state_fips = c2010.state_fips
+    AND c2019.county_fips = c2010.county_fips
+ORDER BY pct_change DESC;
+```
+
 [목차로 돌아가기](#midterm-guide--중간고사-가이드)
