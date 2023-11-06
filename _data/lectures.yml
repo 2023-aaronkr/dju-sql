@@ -95,10 +95,14 @@
   week: 10
   title: >
     - 8장. 적시적소에 알맞은 테이블 디자인
-  slides:
+  slides: "https://docs.google.com/presentation/d/1ItZuJgwlhK-3HCqVuVEa_my9uMHpYN_RCIPDFkY70bw/edit?usp=sharing"
   readings: >
     실용 SQL, <strong>8장, pp. 149-170</strong>
-  logistics:
+  logistics: >
+    <ul>
+      <li><a href="https://drive.google.com/drive/folders/1jF408O6AG1k1rX4FBTHjJamXue9X0E6X?usp=sharing">8장 자료</a></li>
+      <li><a style="color: red" href="https://forms.gle/1N34UazaYQ9rjLPJA">10주차 과제 제출하기</a></li>
+    </ul>
 
 - date: 11/13
   week: 11
