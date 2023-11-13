@@ -107,26 +107,33 @@
 - date: 11/13
   week: 11
   title: >
+    - 10장. 데이터 검사 및 수정
+  slides: "https://docs.google.com/presentation/d/15k4UoNXXNrOMW3IKWTt2Q1fMQM9fe8N6foxVbj9nf08/edit?usp=sharing"
+  readings: >
+    실용 SQL, <strong>10장, pp. 191-216</strong>
+  logistics: >
+    <ul>
+      <li><a href="https://drive.google.com/drive/folders/16xUJy5kcFsCaIcREryZOA8aGrBcsJrSL?usp=sharing">10장 자료</a></li>
+      <li><a style="color: red" href="https://forms.gle/hB89ri3nuEkHmb3j9">10장 과제 제출하기</a></li>
+    </ul>
+
+- date: 11/13
+  week: >
+    <span style="color: red">6 (보강)</span>
+  title: >
+    <span style="color: red">11/13 저녁 - 6주차 보강</span><br>
     - 9장. 그루핑과 요약으로 정보 추출
-  slides:
+  slides: "https://docs.google.com/presentation/d/1Snsy3F2gl458B5ZGbOicH3oQltHvDYq9bIHRGswnFTY/edit?usp=sharing"
   readings: >
     실용 SQL, <strong>9장, pp. 173-189</strong>
-  logistics:
+  logistics: <ul>
+      <li><a href="https://drive.google.com/drive/folders/1xmBKoFdPzgriru6YK8KyHvspPVX5eFAz?usp=sharing">9장 자료</a></li>
+      <li><a style="color: red" href="https://forms.gle/QDjjwkyqFQJAm1Jv7">9장 과제 제출하기</a></li>
+    </ul>
 
 - date: 11/20
   week: 12
   title: >
-    - 10장. 데이터 검사 및 수정
-  slides:
-  readings: >
-    실용 SQL, <strong>10장, pp. 191-216</strong>
-  logistics:
-
-- date: 11/20
-  week: >
-    <span style="color: red">6 (보강)?</span>
-  title: >
-    <span style="color: red">11/20 저녁 - 6주차 보강?</span><br>
     - 11장. SQL 통계 함수
   slides:
   readings: >
@@ -136,6 +143,7 @@
 - date: 11/27
   week: 13
   title: >
+    <span style="color: red">11/27 저녁 6시 변경 (아침 10시 수업 없음)</span><br>
     - 12장. 날짜와 시간을 사용한 작업
   slides:
   readings: >
