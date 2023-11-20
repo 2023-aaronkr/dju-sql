@@ -101,7 +101,7 @@
   logistics: >
     <ul>
       <li><a href="https://drive.google.com/drive/folders/1jF408O6AG1k1rX4FBTHjJamXue9X0E6X?usp=sharing">8장 자료</a></li>
-      <li><a style="color: red" href="https://forms.gle/1N34UazaYQ9rjLPJA">10주차 과제 제출하기</a></li>
+      <li><a style="color: red" href="https://forms.gle/1N34UazaYQ9rjLPJA">8장 과제 제출하기</a></li>
     </ul>
 
 - date: 11/13
@@ -135,10 +135,14 @@
   week: 12
   title: >
     - 11장. SQL 통계 함수
-  slides:
+  slides: "https://docs.google.com/presentation/d/13KPG0DJfr5XaX_GYjfJ4GyZG4Qzupc0aWqugV_XdcOw/edit?usp=sharing"
   readings: >
     실용 SQL, <strong>11장, pp. 217-236</strong>
-  logistics:
+  logistics: >
+    <ul>
+      <li><a href="https://drive.google.com/drive/folders/1TGUOtjN5Ie1XE3fY_Nmbuk4LjCMM-8tU?usp=sharing">11장 자료</a></li>
+      <li><a style="color: red" href="https://forms.gle/MEfvQ23cNm3QhB7u6">11장 과제 제출하기</a></li>
+    </ul>
 
 - date: 11/27
   week: 13
