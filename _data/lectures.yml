@@ -149,10 +149,14 @@
   title: >
     <span style="color: red">11/27 저녁 6시 변경 (아침 10시 수업 없음)</span><br>
     - 12장. 날짜와 시간을 사용한 작업
-  slides:
+  slides: "https://docs.google.com/presentation/d/1R01sPEd0K22EJR2KUXAtvR9blOGJAYnGC84rxSDKObQ/edit?usp=sharing"
   readings: >
     실용 SQL, <strong>12장, pp. 237-256</strong>
-  logistics:
+  logistics: >
+    <ul>
+      <li><a href="https://drive.google.com/drive/folders/1FJfOZqk_LV_NWmAXqxY-M2IRLo6MEzX8?usp=sharing">12장 자료</a></li>
+      <li><a style="color: red" href="https://forms.gle/RufCRJpidUXRfxyG9">12장 과제 제출하기</a></li>
+    </ul>
 
 - date: 12/4
   week: 14
