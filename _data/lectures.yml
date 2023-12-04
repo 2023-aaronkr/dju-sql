@@ -162,10 +162,14 @@
   week: 14
   title: >
     - 13장. 고급 쿼리 기술
-  slides:
+  slides: "https://docs.google.com/presentation/d/1IrYCU5I3N9mC0uWBR3tWhDbvcf2W6BCX0p7XoNvYGXc/edit?usp=sharing"
   readings: >
     실용 SQL, <strong>13장, pp. 259-280</strong>
-  logistics:
+  logistics: >
+    <ul>
+      <li><a href="https://drive.google.com/drive/folders/1EIdjSz4bMd0TtAgXi-UoGe0jjNYi-pXe?usp=sharing">13장 자료</a></li>
+      <li><a style="color: red" href="https://forms.gle/pm3wUpKouqifzerM6">13장 과제 제출하기</a></li>
+    </ul>
 
 - date: 12/11
   week: 15 (보강)
