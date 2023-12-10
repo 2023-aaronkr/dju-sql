@@ -176,10 +176,14 @@
   title: >
     <span style="color: red">9주차 보강</span><br>
     - 14장. 의미 있는 데이터를 찾기 위한 텍스트 마이닝
-  slides:
+  slides: "https://docs.google.com/presentation/d/1Ch02f5HpyJnZQDFLZFuUph0mAaJBVl2t7sXGh5sK2QM/edit?usp=sharing"
   readings: >
     실용 SQL, <strong>14장, pp. 283-312</strong>
-  logistics:
+  logistics: >
+    <ul>
+      <li><a href="https://drive.google.com/drive/folders/1UngFVIIPRldcFOM7IgtA9Nycns6Gqfv7?usp=sharing">14장 자료</a></li>
+      <li><a style="color: red" href="https://forms.gle/5dk4UU5TD5fLQf298">14장 과제 제출하기</a></li>
+    </ul>
 
 - date: 12/18
   week: 16
