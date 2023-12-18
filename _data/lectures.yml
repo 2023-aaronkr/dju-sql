@@ -189,3 +189,13 @@
   week: 16
   title: >
     <strong>Final Test</strong>
+  logistics: >
+    <ul>
+      <li><a href="https://forms.gle/s4u9vF8UURq3ZL6QA">퀴즈</a></li>
+      <li><a style="display: none;" href="https://forms.gle/xr1DyUzUKuM3JZuy6">실기 제출하기</a></li>
+    </ul>
+
+- date: 12/25
+  week: 16
+  title: >
+    <strong>Final Test</strong>
